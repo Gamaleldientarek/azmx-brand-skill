@@ -49,13 +49,15 @@ Every tone in the system. Source of truth: the `Colors` Figma collection in the 
 
 Permitted only for semantic or categorical data, chiefly 10 px risk dots with no colored labels.
 
-| Token | Hex | Meaning |
-|---|---|---|
-| Red | `#FF2B3C` | High risk or impact |
-| Yellow | `#FED340` | Medium |
-| Green | `#22C36F` | Low |
-| Orange | `#F47A48` | Categorical only, rare |
-| Purple | `#C68FFF` | Categorical only, rare |
+| Token | Hex | Figma variable | Variable ID | Meaning |
+|---|---|---|---|---|
+| Red | `#FF2B3C` | `Red` | `1:173` | High risk or impact |
+| Yellow | `#FED340` | `Yellow` | `1:147` | Medium |
+| Green | `#22C36F` | `Green` | `1:171` | Low |
+| Orange | `#F47A48` | not yet recorded | | Categorical only, rare |
+| Purple | `#C68FFF` | not yet recorded | | Categorical only, rare |
+
+Note: full Alert sets (Red, Yellow, Orange, Blue, Green, each with BG, Border, and Text values plus dark variants) exist in the Figma `Colors` collection but are not yet captured here. Ask the user for these tokens if a data-UI context needs them.
 
 ## Surfaces
 
