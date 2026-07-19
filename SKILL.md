@@ -67,10 +67,23 @@ These read as AI or template tells; never do them: rounded-corner cards with dro
 
 Logos are optically centered, never bounding-box centered, and never cross the 100 px safe area. On dark surfaces use the White variant, on light use Navy Dark or Colored.
 
+## Ask before you color
+
+Before applying any accent or fill color, confirm the token with the user. Ask a direct question such as:
+
+> "Which color token should I use here: Primary Electric `#001AFF`, or another token from the palette (Light Blue, Dark Navy, a Blue-ramp step, a neutral)?"
+
+Rules for this step:
+
+- Never silently pick an accent color when more than one token could fit. One short question, then proceed.
+- If the user names a token that is not in `references/colors.md`, ask them to share its hex value. Use the value they give, and offer to add it to `references/colors.md` so the palette stays the single source of truth.
+- Skip the question only when the choice is already forced by the system (for example: body text on white is always Neutral 900, text on navy is always White / Blue 100, RAG dots are always Red / Yellow / Green).
+
 ## Workflow
 
 1. Identify the surface (navy, white, blue-50, or gradient) and apply its text colors from `references/colors.md`.
-2. Load the two font families from `assets/fonts.css` for any HTML/web deliverable, or embed the TTF/OTF files for documents.
-3. Place the correct logo variant for the surface.
-4. Apply one chevron gesture maximum, pointing right.
-5. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.
+2. Confirm the accent color token with the user (see "Ask before you color" above).
+3. Load the two font families from `assets/fonts.css` for any HTML/web deliverable, or embed the TTF/OTF files for documents.
+4. Place the correct logo variant for the surface.
+5. Apply one chevron gesture maximum, pointing right.
+6. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.
