@@ -48,4 +48,4 @@ Full ramps and usage rules live in `references/colors.md`.
 
 The thmanyah serif display and Azm X font files are licensed for AZMX use only. This repo is private for that reason. Do not redistribute the fonts outside the team.
 
-Maintained by Gamal (ccreative@azmx.sa). Design system v1.0, encoded from the New Direction Library Figma file.
+Built by [gamaleldien.com](https://gamaleldien.com) (ccreative@azmx.sa). Design system v1.1, encoded from the New Direction Library Figma file.
