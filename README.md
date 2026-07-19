@@ -21,7 +21,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 
 ## Install (for AZMX team members)
 
-You need access to this private repo (ask Gamal for an invite) and [Claude Code](https://claude.com/claude-code) or any agent that supports Agent Skills.
+You need [Claude Code](https://claude.com/claude-code) or any agent that supports Agent Skills.
 
 ```bash
 npx skills add Gamaleldientarek/azmx-brand-skill -g
@@ -49,6 +49,6 @@ Full ramps and usage rules live in `references/colors.md`.
 
 ## License note
 
-The thmanyah serif display and Azm X font files are licensed for AZMX use only. This repo is private for that reason. Do not redistribute the fonts outside the team.
+The AZMX logo, brand assets, and the thmanyah serif display and Azm X font files are the property of AZMX and its licensors, and are licensed for AZMX work only. Viewing this repo does not grant any right to use them in non-AZMX projects or to redistribute the fonts.
 
 Built by [gamaleldien.com](https://gamaleldien.com). Design system v1.1, encoded from the New Direction Library Figma file.
