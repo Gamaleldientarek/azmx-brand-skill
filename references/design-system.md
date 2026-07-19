@@ -235,7 +235,9 @@ The gradient brand identity and type system are **bilingual (EN + Arabic).** Azm
 
 The **`Arrow Shape` chevron `›`** is AZMX's signature graphic and the **only recurring graphic device** in the system. It replaces all generic decoration. Geometry: a single chevron is a 60°-included open caret; default aspect 1 : 1.3 (taller than wide). Variants: **Filled / Stroked / White-outline.**
 
-### 4.1 Six sanctioned uses
+> **v1.1 amendment (2026-07-20, owner decision): chevrons are banned as background decoration.** Uses 2 (oversized bleed element) and 4 (concentric chevron arcs) are retired. No ghost chevron field textures, no low-opacity chevron backdrops, no chevron art behind or under content. Backgrounds are solid surface or gradient only. The remaining sanctioned uses are functional/foreground: photo mask, stacked-in-motion hero, section tick, list bullet.
+
+### 4.1 Six sanctioned uses (uses 2 and 4 retired — see v1.1 amendment above)
 
 | # | Use | Description | Where |
 |---|---|---|---|
@@ -478,6 +480,7 @@ Tokens → atoms → molecules (atom-dependent) → composite molecules / templa
 | Version | Date | Notes |
 |---|---|---|
 | **1.0** | 2026-06-09 | Initial authoritative AZMX Design System handbook. Consolidated from `MASTER-BRIEF.md`, `art-direction.md`, `component-architecture.md`, `SESSION-HANDOFF.md`, and the `azmx-brand-system` memory. Reflects the as-built state: 66 slides, fully tokenized, no-italics confirmed. |
+| **1.1** | 2026-07-20 | Chevron background uses retired by owner decision: no oversized bleed ghosts (former use 2), no concentric arc backdrops (former use 4), no chevron art behind content. Functional chevron uses (photo mask, stacked-motion hero, tick, bullet) unchanged. |
 
 ---
 

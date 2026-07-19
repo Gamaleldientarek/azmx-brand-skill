@@ -1,6 +1,6 @@
 ---
 name: azmx-brand
-description: Apply the official AZMX brand identity to any deliverable. Use whenever work involves AZMX branding, AZMX presentations, proposals, emails, reports, social graphics, web pages, or documents, or when the user mentions AZMX colors, the chevron, Dark Navy, Electric blue, thmanyah serif, or Azm X fonts. Provides the full color palette, typography rules, logo files, and web fonts.
+description: Apply the official AZMX brand identity to any deliverable. Use whenever work involves AZMX branding, AZMX presentations, proposals, emails, newsletters, reports, social graphics, web pages, documents, or copywriting in the AZMX voice, or when the user mentions AZMX colors, the chevron, Dark Navy, Electric blue, thmanyah serif, or Azm X fonts. Provides the full color palette, typography rules, logo files, web fonts, the email design system, and the voice and tone guide.
 ---
 
 # AZMX Brand Skill
@@ -9,7 +9,7 @@ AZMX is a Saudi UX and innovation design studio. This skill encodes its official
 
 One-line ethos: deep navy, electric blue, generous white space, serif personality, the chevron as the only recurring graphic device. **Restraint is the luxury.**
 
-For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`.
+For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`. For any HTML email or newsletter, read `references/email-design-system.md` and start from `assets/templates/email-starter-skeleton.html`. For any written copy, follow `references/voice-and-tone.md`.
 
 ## Core palette
 
@@ -39,7 +39,9 @@ Rules: serif carries personality, sans carries information. Never set body copy 
 
 ## The chevron
 
-The rightward chevron is the only graphic device. Sanctioned uses: photo mask, oversized corner bleed, stacked-in-motion trio, concentric arcs, section tick, and list bullet. One big chevron gesture per surface, always pointing in the reading direction. No icon packs, no clip art, no 3D blobs, no glows, no drop-shadow cards.
+The rightward chevron is the only graphic device, and it is **functional, never background decoration**. Sanctioned uses: photo mask, stacked-in-motion hero trio (foreground compositional art), section tick, and list bullet. One big chevron gesture per surface, always pointing in the reading direction. No icon packs, no clip art, no 3D blobs, no glows, no drop-shadow cards.
+
+**Banned (owner decision, 2026-07-20): chevrons as backgrounds.** No oversized ghost chevrons bleeding off corners, no navy-on-navy or low-opacity chevron field textures, no concentric chevron arc backdrops, no chevron art placed behind or under content. Backgrounds stay clean: solid surface, gradient (event surfaces only), and nothing else. If a layout feels empty without a background device, the answer is negative space, not a chevron.
 
 ## Layout essentials
 
@@ -64,6 +66,8 @@ These read as AI or template tells; never do them: rounded-corner cards with dro
 | Azm X fonts | `assets/fonts/azmx/*.ttf` | Sans, EN + AR |
 | thmanyah fonts | `assets/fonts/thmanyah/*.woff2` (web), `*.otf` (desktop) | Serif display |
 | Font-face CSS | `assets/fonts.css` | Drop into any HTML deliverable |
+| Email skeleton | `assets/templates/email-starter-skeleton.html` | Blank ready-to-fill AZMX email, default blue theme |
+| Email components | `assets/templates/email-component-showcase.html` | Every email component rendered once, copy-paste markup |
 
 Logos are optically centered, never bounding-box centered, and never cross the 100 px safe area. On dark surfaces use the White variant, on light use Navy Dark or Colored.
 
@@ -86,4 +90,6 @@ Rules for this step:
 3. Load the two font families from `assets/fonts.css` for any HTML/web deliverable, or embed the TTF/OTF files for documents.
 4. Place the correct logo variant for the surface.
 5. Apply one chevron gesture maximum, pointing right.
-6. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.
+6. For emails and newsletters: follow `references/email-design-system.md` (Arabic RTL rules are non-negotiable) and build from the email skeleton template.
+7. For all written copy: apply `references/voice-and-tone.md`, including its no-AI-tells mechanics.
+8. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.

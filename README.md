@@ -7,8 +7,11 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 ## What's inside
 
 - `SKILL.md`: the condensed brand rules the agent loads automatically
-- `references/design-system.md`: the full AZMX Design System handbook v1.0
+- `references/design-system.md`: the full AZMX Design System handbook (v1.1: chevrons banned as backgrounds)
 - `references/colors.md`: every color tone (primary, blue ramp 50 to 1000, neutrals, RAG, surfaces, text-by-surface)
+- `references/email-design-system.md`: the AZMX Email Design System v1 (RTL rules, 3-layer fonts, themes, components)
+- `references/voice-and-tone.md`: how AZMX sounds, EN and AR, plus the no-AI-tells writing mechanics
+- `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
 - `assets/logo/`: the AZMX logo in Colored, Navy Dark, and White SVG variants, plus the chevron favicon
 - `assets/fonts/`: Azm X (TTF, English and Arabic) and thmanyah serif display (woff2 for web, OTF for desktop)
 - `assets/fonts.css`: ready-made @font-face rules plus CSS variables for the palette
