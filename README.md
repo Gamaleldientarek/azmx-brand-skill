@@ -1,3 +1,5 @@
+![AZMX Brand Skill](assets/cover.jpg)
+
 # AZMX Brand Skill
 
 The official AZMX brand system, packaged as an Agent Skill for Claude Code and other AI agents. Install it once and every deliverable (decks, emails, reports, web pages, social graphics, documents) comes out in the AZMX identity without re-briefing the agent.
