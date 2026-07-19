@@ -51,13 +51,13 @@ Permitted only for semantic or categorical data, chiefly 10 px risk dots with no
 
 | Token | Hex | Figma variable | Variable ID | Meaning |
 |---|---|---|---|---|
-| Red | `#FF2B3C` | `Red` | `1:173` | High risk or impact |
-| Yellow | `#FED340` | `Yellow` | `1:147` | Medium |
-| Green | `#22C36F` | `Green` | `1:171` | Low |
-| Orange | `#F47A48` | not yet recorded | | Categorical only, rare |
-| Purple | `#C68FFF` | not yet recorded | | Categorical only, rare |
+| Red | `#FF2B3C` | `Secondary/Light/Red` | `1:173` | High risk or impact |
+| Yellow | `#FED340` | `Secondary/Light/Yellow` | `1:147` | Medium |
+| Green | `#22C36F` | `Secondary/Light/Green` | `1:171` | Low |
+| Orange | `#F47A48` | `Secondary/Light/Orange` | `1:144` | Categorical only, rare |
+| Purple | `#C68FFF` | `Secondary/Light/Purple` | `1:145` | Categorical only, rare |
 
-Note: full Alert sets (Red, Yellow, Orange, Blue, Green, each with BG, Border, and Text values plus dark variants) exist in the Figma `Colors` collection but are not yet captured here. Ask the user for these tokens if a data-UI context needs them.
+Each secondary color also has a `Secondary/Dark/*` variant, and full Alert sets (BG, BGO, Border, Text per color) exist for data-UI contexts. The complete live export of every variable, including Alert sets, Alpha tones, and the Numbers collection (type scale, spacing, radii, opacity), is in `figma-tokens.md`.
 
 ## Surfaces
 

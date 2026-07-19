@@ -9,6 +9,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `SKILL.md`: the condensed brand rules the agent loads automatically
 - `references/design-system.md`: the full AZMX Design System handbook (v1.1: chevrons banned as backgrounds)
 - `references/colors.md`: every color tone (primary, blue ramp 50 to 1000, neutrals, RAG, surfaces, text-by-surface)
+- `references/figma-tokens.md`: the complete live Figma variable export, 233 tokens across Colors (with Dark Mode), Fonts, and Numbers (type scale, spacing, radii, opacity)
 - `references/email-design-system.md`: the AZMX Email Design System v1 (RTL rules, 3-layer fonts, themes, components)
 - `references/voice-and-tone.md`: how AZMX sounds, EN and AR, plus the no-AI-tells writing mechanics
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
