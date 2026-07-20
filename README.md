@@ -52,6 +52,17 @@ npx skills update azmx-brand
 
 Full ramps and usage rules live in `references/colors.md`.
 
+## Adding images to the library
+
+Ask Claude ("add these to the AZMX image library"), or do it yourself from this folder:
+
+```bash
+python3 scripts/add-images.py blue ~/Desktop/new-renders/
+git add -A && git commit -m "Add images to blue" && git push
+```
+
+Sections: `gradient`, `blue`, `white`, `orange`, `purple`, `red`, `green`, `yellow`. The script resizes to 1600px, compresses to match the set, numbers the files, and rebuilds both the index and the live gallery. Needs Pillow (`pip3 install Pillow`).
+
 ## License note
 
 The AZMX logo, brand assets, and the thmanyah serif display and Azm X font files are the property of AZMX and its licensors, and are licensed for AZMX work only. Viewing this repo does not grant any right to use them in non-AZMX projects or to redistribute the fonts.

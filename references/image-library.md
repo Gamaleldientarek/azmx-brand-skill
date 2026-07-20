@@ -59,6 +59,25 @@ Because these images are dark, they can stand in for a **Solid Navy** or **gradi
 
 When more than one image could fit, show the user two or three candidates by filename and let them pick, rather than silently choosing. The same rule as color tokens applies: confirm, then proceed.
 
+## Adding new images
+
+Two ways, both keeping the index, the gallery, and the pairing data in sync.
+
+**Ask Claude.** Say "add these images to the AZMX library" and point at the files, a folder, or a Figma section. Claude resizes, compresses, names, rebuilds, and pushes.
+
+**Or run it yourself** from the repo folder:
+
+```bash
+python3 scripts/add-images.py blue ~/Desktop/new-renders/
+git add -A && git commit -m "Add images to blue" && git push
+```
+
+The script takes a section name (`gradient`, `blue`, `white`, `orange`, `purple`, `red`, `green`, `yellow`) plus any mix of files and folders. It resizes to 1600 px wide, compresses to JPEG quality 70 to match the existing set, numbers each file with the next free index in that section, then rebuilds `references/image-index.md` and the gallery.
+
+After pushing, the live gallery updates itself within a minute or two.
+
+To re-measure everything without adding files (after deleting or replacing images), run `python3 scripts/rebuild-index.py`. It needs Pillow: `pip3 install Pillow`.
+
 ## Re-exporting or updating
 
 The source lives on the `Gradient & Bks` page of the New Direction Library file (fileKey `j8ugBpb1yUUyL8hfb6FHKR`). Sections are `Gradients`, `Abstract Blue`, `Orange`, `Purple`, `Green`, `Yellow`, `Red`, `White`. Export at 1600 px wide JPG and compress to quality 70 to match the current set.

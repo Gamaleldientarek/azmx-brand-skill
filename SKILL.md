@@ -74,6 +74,28 @@ These read as AI or template tells; never do them: rounded-corner cards with dro
 
 Logos are optically centered, never bounding-box centered, and never cross the 100 px safe area. On dark surfaces use the White variant, on light use Navy Dark or Colored.
 
+## Use the image library
+
+Any visual deliverable that needs imagery **uses this library** rather than generic stock, a placeholder, a flat colour block, or a newly generated image. 222 images ship with the skill; there is almost always a fit.
+
+**How to reference them, by deliverable type:**
+
+- **HTML, email, or web page**: use the public URL so the file works for anyone who opens it —
+  `https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/blue/blue-014.jpg`
+  Local relative paths only when the deliverable ships alongside the skill folder.
+- **Word, PowerPoint, PDF, or any document build**: embed the local file from `assets/images/<section>/`.
+- **Figma**: upload the local file as an image fill, and prefer the chevron photo mask over a plain rectangle.
+- **Anything the user will hand-edit later**: give them the filename and the gallery link, https://gamaleldientarek.github.io/azmx-brand-skill/
+
+**Picking one:**
+
+1. Default to `blue/` for general surfaces and `gradient/` for covers, dividers, and closings.
+2. Check `references/image-index.md` for the image's dominant colour and safe text colour before laying type over it.
+3. When several images fit, name two or three candidates and let the user choose. Do not silently pick, exactly as with colour tokens.
+4. Never invent or download outside imagery for an AZMX deliverable without saying so first. If nothing in the library fits, say that plainly and ask before sourcing elsewhere.
+
+Images are dark surfaces: White titles, Blue 100 body, Light Blue eyebrows, and Electric only as a chevron tick or single rule. The `white/` section is the exception, taking Navy text with Electric accents.
+
 ## Ask before you color
 
 Before applying any accent or fill color, confirm the token with the user. Ask a direct question such as:
@@ -91,8 +113,9 @@ Rules for this step:
 1. Identify the surface (navy, white, blue-50, or gradient) and apply its text colors from `references/colors.md`.
 2. Confirm the accent color token with the user (see "Ask before you color" above).
 3. Load the two font families from `assets/fonts.css` for any HTML/web deliverable, or embed the TTF/OTF files for documents.
-4. Place the correct logo variant for the surface.
-5. Apply one chevron gesture maximum, pointing right.
-6. For emails and newsletters: follow `references/email-design-system.md` (Arabic RTL rules are non-negotiable) and build from the email skeleton template.
-7. For all written copy: apply `references/voice-and-tone.md`, including its no-AI-tells mechanics.
-8. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.
+4. If the deliverable needs imagery, pick from the image library (see "Use the image library" above). Never substitute generic stock or a placeholder.
+5. Place the correct logo variant for the surface.
+6. Apply one chevron gesture maximum, pointing right.
+7. For emails and newsletters: follow `references/email-design-system.md` (Arabic RTL rules are non-negotiable) and build from the email skeleton template.
+8. For all written copy: apply `references/voice-and-tone.md`, including its no-AI-tells mechanics.
+9. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.

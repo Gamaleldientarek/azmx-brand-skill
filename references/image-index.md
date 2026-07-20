@@ -1,6 +1,6 @@
 # AZMX Image Index
 
-Every image in the library with its direct download link, dominant colour, and the text colour that is safe on top of it.
+Every image in the library (222 total) with its direct download link, dominant colour, and the text colour that is safe on top of it.
 
 Download any image directly with curl, or paste the URL into a browser, Figma, Canva, or an email builder:
 
@@ -8,11 +8,7 @@ Download any image directly with curl, or paste the URL into a browser, Figma, C
 curl -L -O "https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/blue/blue-001.jpg"
 ```
 
-Grab a whole section at once:
-
-```bash
-for i in $(seq -w 1 107); do curl -sL -O "https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/blue/blue-$i.jpg"; done
-```
+Browse them visually at https://gamaleldientarek.github.io/azmx-brand-skill/
 
 `Text on top` is derived from each image's measured luminance. Dark images take White titles with Light Blue accents; Electric is never used for text on these surfaces because it fails contrast on dark.
 
@@ -179,32 +175,6 @@ for i in $(seq -w 1 107); do curl -sL -O "https://raw.githubusercontent.com/Gama
 | `white-004.jpg` | `#D2D6DA` | Neutral 200 #E5E7EB | White, test contrast | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/white/white-004.jpg) |
 | `white-005.jpg` | `#111113` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/white/white-005.jpg) |
 
-## Orange (21)
-
-| Image | Dominant | Nearest token | Text on top | Link |
-|---|---|---|---|---|
-| `orange-001.jpg` | `#701601` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-001.jpg) |
-| `orange-002.jpg` | `#AF2805` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-002.jpg) |
-| `orange-003.jpg` | `#621002` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-003.jpg) |
-| `orange-004.jpg` | `#8F0601` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-004.jpg) |
-| `orange-005.jpg` | `#F26D18` | Orange #F47A48 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-005.jpg) |
-| `orange-006.jpg` | `#650101` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-006.jpg) |
-| `orange-007.jpg` | `#5D0701` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-007.jpg) |
-| `orange-008.jpg` | `#C23E02` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-008.jpg) |
-| `orange-009.jpg` | `#650201` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-009.jpg) |
-| `orange-010.jpg` | `#510504` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-010.jpg) |
-| `orange-011.jpg` | `#640901` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-011.jpg) |
-| `orange-012.jpg` | `#540201` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-012.jpg) |
-| `orange-013.jpg` | `#B21B07` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-013.jpg) |
-| `orange-014.jpg` | `#6A1002` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-014.jpg) |
-| `orange-015.jpg` | `#F97616` | Orange #F47A48 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-015.jpg) |
-| `orange-016.jpg` | `#B11401` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-016.jpg) |
-| `orange-017.jpg` | `#800801` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-017.jpg) |
-| `orange-018.jpg` | `#AF1302` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-018.jpg) |
-| `orange-019.jpg` | `#912603` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-019.jpg) |
-| `orange-020.jpg` | `#5A1503` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-020.jpg) |
-| `orange-021.jpg` | `#F0C79F` | Neutral 200 #E5E7EB | White, test contrast | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-021.jpg) |
-
 ## Purple (24)
 
 | Image | Dominant | Nearest token | Text on top | Link |
@@ -233,6 +203,32 @@ for i in $(seq -w 1 107); do curl -sL -O "https://raw.githubusercontent.com/Gama
 | `purple-022.jpg` | `#3D0D7B` | Blue 900 #01006E | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/purple/purple-022.jpg) |
 | `purple-023.jpg` | `#280164` | Blue 900 #01006E | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/purple/purple-023.jpg) |
 | `purple-024.jpg` | `#03012D` | Dark Navy #040038 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/purple/purple-024.jpg) |
+
+## Orange (21)
+
+| Image | Dominant | Nearest token | Text on top | Link |
+|---|---|---|---|---|
+| `orange-001.jpg` | `#701601` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-001.jpg) |
+| `orange-002.jpg` | `#AF2805` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-002.jpg) |
+| `orange-003.jpg` | `#621002` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-003.jpg) |
+| `orange-004.jpg` | `#8F0601` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-004.jpg) |
+| `orange-005.jpg` | `#F26D18` | Orange #F47A48 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-005.jpg) |
+| `orange-006.jpg` | `#650101` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-006.jpg) |
+| `orange-007.jpg` | `#5D0701` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-007.jpg) |
+| `orange-008.jpg` | `#C23E02` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-008.jpg) |
+| `orange-009.jpg` | `#650201` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-009.jpg) |
+| `orange-010.jpg` | `#510504` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-010.jpg) |
+| `orange-011.jpg` | `#640901` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-011.jpg) |
+| `orange-012.jpg` | `#540201` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-012.jpg) |
+| `orange-013.jpg` | `#B21B07` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-013.jpg) |
+| `orange-014.jpg` | `#6A1002` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-014.jpg) |
+| `orange-015.jpg` | `#F97616` | Orange #F47A48 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-015.jpg) |
+| `orange-016.jpg` | `#B11401` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-016.jpg) |
+| `orange-017.jpg` | `#800801` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-017.jpg) |
+| `orange-018.jpg` | `#AF1302` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-018.jpg) |
+| `orange-019.jpg` | `#912603` | Red #FF2B3C | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-019.jpg) |
+| `orange-020.jpg` | `#5A1503` | Neutral 900 #111927 | White + Light Blue accent | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-020.jpg) |
+| `orange-021.jpg` | `#F0C79F` | Neutral 200 #E5E7EB | White, test contrast | [download](https://raw.githubusercontent.com/Gamaleldientarek/azmx-brand-skill/main/assets/images/orange/orange-021.jpg) |
 
 ## Red (19)
 
