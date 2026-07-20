@@ -46,6 +46,18 @@ Because these images are dark, they can stand in for a **Solid Navy** or **gradi
 
 `references/image-index.md` lists every file with its measured dominant hex, nearest token, safe text colour, and a direct download link.
 
+## Concept tags
+
+Every image carries three tags describing the abstract concept it can represent in a deliverable, not a literal description of the picture. A render of a staircase is tagged `progress, ascent, structure`, never `stairs`. Colour names are never used as tags, because colour is already handled by the section and the measured pairing data.
+
+**Choose an image by concept first, then by colour.** Read what the surface is saying, search `image-index.md` for that tag, and pick from the matches. An image whose concept contradicts the copy undermines the page more than having no image at all.
+
+The full vocabulary in use (70 tags, most common first):
+
+`craft`, `focus`, `structure`, `balance`, `potential`, `emergence`, `calm`, `precision`, `clarity`, `simplicity`, `growth`, `depth`, `order`, `momentum`, `flow`, `harmony`, `foundation`, `energy`, `direction`, `progress`, `horizon`, `scale`, `ambition`, `complexity`, `vision`, `form`, `strategy`, `transformation`, `care`, `layers`, `contrast`, `resilience`, `discipline`, `tension`, `unity`, `discovery`, `innovation`, `composition`, `insight`, `transition`, `connection`, `knowledge`, `ascent`, `openness`, `expansion`, `stability`, `achievement`, `authority`, `opportunity`, `excellence`, `trust`, `offering`, `solitude`, `vitality`, `hierarchy`, `refinement`, `threshold`, `values`, `value`, `abundance`, `control`, `equilibrium`, `landmark`, `heritage`, `subtlety`, `detail`, `perspective`, `reflection`, `reward`, `launch`
+
+Tags live in `scripts/image-tags.json` and are rendered into the index, the gallery filter, and each image's alt text. When new images are added, tag them from this existing vocabulary rather than inventing new words, so the library stays searchable.
+
 ## Selection rules
 
 1. **Default to Abstract Blue and Gradients.** They carry the AZMX identity. The colored sections exist because the source assets were recolored for specific projects; they are not brand colors and should not appear on a standard AZMX surface.

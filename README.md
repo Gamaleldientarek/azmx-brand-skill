@@ -17,7 +17,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/email-design-system.md`: the AZMX Email Design System v1 (RTL rules, 3-layer fonts, themes, components)
 - `references/voice-and-tone.md`: how AZMX sounds, EN and AR, plus the no-AI-tells writing mechanics
 - `references/image-library.md`: catalogue, selection rules, and measured colour pairings for the image library
-- `references/image-index.md`: every image with its dominant colour, safe text colour, and a direct download link
+- `references/image-index.md`: every image with its three concept tags, dominant colour, safe text colour, and a direct download link
 - `references/recolor-prompts.md`: tested prompts for converting an image to another colour theme, copyable from the gallery
 - `assets/images/`: 242 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase

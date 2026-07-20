@@ -9,7 +9,7 @@ AZMX is a Saudi UX and innovation design studio. This skill encodes its official
 
 One-line ethos: deep navy, electric blue, generous white space, serif personality, the chevron as the only recurring graphic device. **Restraint is the luxury.**
 
-For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`. For the exact live Figma variables (all 233: colors with dark mode, fonts, type scale, spacing, radii, opacity), read `references/figma-tokens.md`. For any HTML email or newsletter, read `references/email-design-system.md` and start from `assets/templates/email-starter-skeleton.html`. For any written copy, follow `references/voice-and-tone.md`. When a deliverable needs imagery, pick from the 242 brand images catalogued in `references/image-library.md` (selection and colour-pairing rules) and `references/image-index.md` (every file with its dominant colour, safe text colour, and direct download link). To convert an image to another colour theme, use the tested prompts in `references/recolor-prompts.md`.
+For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`. For the exact live Figma variables (all 233: colors with dark mode, fonts, type scale, spacing, radii, opacity), read `references/figma-tokens.md`. For any HTML email or newsletter, read `references/email-design-system.md` and start from `assets/templates/email-starter-skeleton.html`. For any written copy, follow `references/voice-and-tone.md`. When a deliverable needs imagery, pick from the 242 brand images catalogued in `references/image-library.md` (selection and colour-pairing rules) and `references/image-index.md` (every file with its three concept tags, dominant colour, safe text colour, and direct download link). To convert an image to another colour theme, use the tested prompts in `references/recolor-prompts.md`.
 
 Images are dark surfaces. Every section except White measures below 0.18 luminance, so text over them follows the Navy row of the text-colour table: White title, Blue 100 body, Light Blue eyebrow. Never Electric for text on an image; Electric appears over imagery only as a chevron tick or a single active rule. The White section is the one exception, taking Navy text with Electric accents.
 
@@ -89,10 +89,15 @@ Any visual deliverable that needs imagery **uses this library** rather than gene
 
 **Recolouring an image to another theme:** the library ships tested prompts in `references/recolor-prompts.md` that convert an image between colour themes while holding lighting, grain, frosted highlights, composition, and pure white constant. Use the matching prompt with the Seeddance Edit V5 model, and never hand-write a recolour prompt when one exists. Recoloured output belongs in the section it was converted to, added through `scripts/add-images.py`.
 
-**Picking one:**
+**Picking one — match the concept first:**
 
-1. Default to `blue/` for general surfaces and `gradient/` for covers, dividers, and closings.
-2. Check `references/image-index.md` for the image's dominant colour and safe text colour before laying type over it.
+Every image carries three concept tags (`momentum`, `precision`, `growth`, `clarity`, `foundation`, `craft`, and so on) describing what it can represent, not what it literally shows. **Choose by meaning, then by colour.** Read the message of the surface — a section about scaling a business wants `growth` or `scale`; a methodology page wants `structure` or `precision`; a closing wants `horizon` or `potential` — then search `references/image-index.md` for that tag and pick from the matches.
+
+An image whose concept contradicts the copy is worse than no image. Never pick one purely because it looks good in isolation.
+
+1. Read the surface's message and search the index for the matching concept tag.
+2. Within those matches, default to `blue/` for general surfaces and `gradient/` for covers, dividers, and closings.
+3. Check the index for the image's dominant colour and safe text colour before laying type over it.
 3. When several images fit, name two or three candidates and let the user choose. Do not silently pick, exactly as with colour tokens.
 4. Never invent or download outside imagery for an AZMX deliverable without saying so first. If nothing in the library fits, say that plainly and ask before sourcing elsewhere.
 

@@ -92,12 +92,14 @@ def text_for(lum):
 
 
 def write_index(secs):
+    tags = load_tags()
     total = sum(len(v) for v in secs.values())
     L = ["# AZMX Image Index\n",
          f"Every image in the library ({total} total) with its direct download link, dominant colour, and the text colour that is safe on top of it.\n",
          "Download any image directly with curl, or paste the URL into a browser, Figma, Canva, or an email builder:\n",
          '```bash\ncurl -L -O "' + RAW + '/blue/blue-001.jpg"\n```\n',
          f"Browse them visually at {GALLERY}\n",
+         "Each image carries three concept tags describing what it can represent in a deliverable. Search this file for a concept (for example `momentum` or `precision`) to shortlist candidates before choosing.\n",
          "`Text on top` is derived from each image's measured luminance. Dark images take White titles with Light Blue accents; Electric is never used for text on these surfaces because it fails contrast on dark.\n",
          "---\n"]
     for s in ORDER:
@@ -105,10 +107,11 @@ def write_index(secs):
         if not rows:
             continue
         L.append(f"## {TITLES[s]} ({len(rows)})\n")
-        L.append("| Image | Dominant | Nearest token | Text on top | Link |")
+        L.append("| Image | Concept tags | Dominant | Text on top | Link |")
         L.append("|---|---|---|---|---|")
         for r in rows:
-            L.append(f"| `{r['f']}` | `{r['dom']}` | {r['tok']} | {text_for(r['L'])} | [download]({RAW}/{s}/{r['f']}) |")
+            tg = ", ".join(tags.get(r["f"], [])) or "—"
+            L.append(f"| `{r['f']}` | {tg} | `{r['dom']}` | {text_for(r['L'])} | [download]({RAW}/{s}/{r['f']}) |")
         L.append("")
     with open(os.path.join(ROOT, "references", "image-index.md"), "w") as fh:
         fh.write("\n".join(L))
@@ -192,7 +195,92 @@ document.querySelectorAll('.copy').forEach(function(btn){
     return "\n".join(h)
 
 
+def load_tags():
+    import json
+    p = os.path.join(ROOT, "scripts", "image-tags.json")
+    if not os.path.exists(p):
+        return {}
+    with open(p) as fh:
+        return json.load(fh)
+
+
+def sidebar(secs):
+    total = sum(len(v) for v in secs.values())
+    h = ['<aside><p class="brand"><img src="assets/logo/azmx-favicon.png" alt="">AZMX</p><nav>']
+    h.append(f'<a href="#top" class="on"><span>All images</span><span class="n">{total}</span></a>')
+    h.append('<p class="navsep">Sections</p>')
+    for s in ORDER:
+        if secs.get(s):
+            h.append(f'<a href="#{s}"><span>{TITLES[s]}</span>'
+                     f'<span class="n">{len(secs[s])}</span></a>')
+    h.append('<p class="navsep">Tools</p>')
+    h.append('<a href="#recolor"><span>Recolour prompts</span></a>')
+    h.append('<a href="https://github.com/Gamaleldientarek/azmx-brand-skill"><span>The brand skill</span></a>')
+    h.append("</nav></aside>")
+    return "\n".join(h)
+
+
+def tag_filter(secs):
+    """Tag chips that filter the grid. Buttons carry aria-pressed so the state is
+    exposed to assistive tech, and the result count is announced live."""
+    tags = load_tags()
+    if not tags:
+        return ""
+    import collections
+    counts = collections.Counter(t for fn, ts in tags.items() for t in ts)
+    top = [t for t, _ in counts.most_common(28)]
+    h = ['<section id="top"><h2 style="margin-top:40px">Browse by concept</h2>',
+         '<p class="sub">Every image carries three concept tags. Pick one to filter the whole library.</p>',
+         '<div class="tagbar">']
+    h.append('<button type="button" data-tag="" aria-pressed="true">All</button>')
+    for t in sorted(top):
+        h.append(f'<button type="button" data-tag="{t}" aria-pressed="false">{t}'
+                 f' <span style="opacity:.55">{counts[t]}</span></button>')
+    h.append('</div><p class="sr" role="status" aria-live="polite" id="filter-status"></p></section>')
+    return "\n".join(h)
+
+
+TAG_SCRIPT = """<script>
+(function(){
+  var buttons = document.querySelectorAll('.tagbar button');
+  var figures = document.querySelectorAll('figure[data-tags]');
+  var status = document.getElementById('filter-status');
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      var tag = b.dataset.tag;
+      buttons.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      var shown = 0;
+      figures.forEach(function(f){
+        var match = !tag || (' ' + f.dataset.tags + ' ').indexOf(' ' + tag + ' ') > -1;
+        f.hidden = !match;
+        if (match) shown++;
+      });
+      document.querySelectorAll('section[id]').forEach(function(sec){
+        var figs = sec.querySelectorAll('figure[data-tags]');
+        if (!figs.length) return;
+        var any = Array.prototype.some.call(figs, function(f){ return !f.hidden; });
+        sec.hidden = !any;
+      });
+      status.textContent = tag ? (shown + ' images tagged ' + tag) : (shown + ' images, filter cleared');
+    });
+  });
+  // Highlight the section currently in view in the sidebar
+  var links = document.querySelectorAll('aside nav a[href^="#"]');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      links.forEach(function(l){
+        l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id);
+      });
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('section[id]').forEach(function(s){ obs.observe(s); });
+})();
+</script>"""
+
+
 def write_gallery(secs, total):
+    tags = load_tags()
     h = ["""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AZMX Image Library</title>
@@ -215,15 +303,50 @@ def write_gallery(secs, total):
 :root{--navy:#040038;--electric:#001AFF;--lightblue:#5D8FFF;--blue100:#DDE8FF;--blue200:#BFD5FF}
 *{box-sizing:border-box}
 body{margin:0;background:var(--navy);color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;-webkit-font-smoothing:antialiased}
-header{padding:clamp(48px,9vw,120px) clamp(24px,5vw,80px) 56px;max-width:1200px}
+body{display:grid;grid-template-columns:230px minmax(0,1fr)}
+aside{position:sticky;top:0;height:100vh;overflow-y:auto;padding:40px 0 40px 28px;
+border-right:1px solid rgba(255,255,255,.12)}
+.brand{display:flex;align-items:center;gap:9px;margin:0 0 36px;font-size:13px;font-weight:600;
+letter-spacing:2px;text-transform:uppercase;color:var(--lightblue)}
+.brand img{width:18px;height:18px}
+aside nav{display:flex;flex-direction:column;gap:2px;padding:0}
+aside nav a{display:flex;align-items:center;justify-content:space-between;gap:10px;
+min-height:38px;padding:0 16px 0 12px;border:0;border-left:2px solid transparent;
+color:var(--blue100);opacity:.72;text-decoration:none;font-size:14px;
+transition:opacity .18s,border-color .18s,background .18s}
+aside nav a:hover{opacity:1;background:rgba(255,255,255,.05)}
+aside nav a.on{opacity:1;border-left-color:var(--electric);background:rgba(255,255,255,.05)}
+aside nav a .n{font-size:12px;opacity:.55;font-variant-numeric:tabular-nums}
+.navsep{margin:20px 12px 10px;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;
+color:var(--blue200);opacity:.45}
+main{min-width:0}
+header{padding:clamp(48px,9vw,120px) clamp(24px,5vw,64px) 56px;max-width:1200px}
+@media(max-width:900px){
+  body{grid-template-columns:1fr}
+  aside{position:static;height:auto;border-right:0;border-bottom:1px solid rgba(255,255,255,.12);
+  padding:24px 24px 20px}
+  .brand{margin-bottom:18px}
+  aside nav{flex-direction:row;flex-wrap:wrap;gap:8px}
+  aside nav a{border-left:0;border:1px solid rgba(255,255,255,.18);padding:0 14px;min-height:44px}
+  aside nav a.on{border-color:var(--electric);border-left-width:1px}
+  .navsep{display:none}
+}
 .eyebrow{color:var(--lightblue);text-transform:uppercase;letter-spacing:2.4px;font-size:14px;font-weight:600;margin:0 0 28px}
 h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,7vw,96px);font-weight:400;letter-spacing:-2px;line-height:1.02;margin:0 0 28px}
 .lede{color:var(--blue100);font-size:clamp(17px,2vw,21px);line-height:1.65;max-width:62ch;margin:0 0 12px;opacity:.88}
 .meta{color:var(--blue200);opacity:.7;font-size:15px;margin:24px 0 0;font-variant-numeric:tabular-nums}
-nav{padding:0 clamp(24px,5vw,80px) 8px;display:flex;flex-wrap:wrap;gap:10px}
-nav a{color:var(--blue100);text-decoration:none;border:1px solid rgba(255,255,255,.18);padding:8px 16px;font-size:14px;transition:.15s}
-nav a:hover{border-color:var(--lightblue);color:#fff}
-section{padding:0 clamp(24px,5vw,80px)}
+section{padding:0 clamp(24px,5vw,64px)}
+.tagbar{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 34px}
+.tagbar button{min-height:32px;padding:0 12px;background:transparent;color:var(--blue100);
+border:1px solid rgba(255,255,255,.18);font:inherit;font-size:12.5px;cursor:pointer;opacity:.8;
+transition:opacity .18s,border-color .18s,background .18s}
+.tagbar button:hover{opacity:1;border-color:var(--lightblue)}
+.tagbar button[aria-pressed="true"]{background:var(--electric);border-color:var(--electric);color:#fff;opacity:1}
+.tags{display:flex;flex-wrap:wrap;gap:5px;padding-top:7px}
+.tags span{font-size:11px;letter-spacing:.3px;color:var(--blue200);opacity:.62;
+border:1px solid rgba(255,255,255,.14);padding:2px 7px}
+figure[hidden]{display:none}
+.empty{color:var(--blue200);opacity:.6;font-size:15px;padding:12px 0 24px}
 h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(28px,3.4vw,40px);margin:72px 0 6px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px;letter-spacing:-.5px}
 .sub{color:var(--blue200);opacity:.7;font-size:15px;margin:0 0 28px;max-width:60ch;line-height:1.6}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
@@ -267,18 +390,16 @@ letter-spacing:.4px;cursor:pointer;transition:background .18s,border-color .18s,
 .copy svg{width:14px;height:14px;flex:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+</style>"""]
+    h.append(sidebar(secs))
+    h.append("""<main>
 <header>
 <p class="eyebrow">AZMX Brand Skill</p>
-<h1>Image Library</h1>"""]
+<h1>Image Library</h1>""")
     h.append(f'<p class="lede">{total} AZMX-generated brand images. Click any image to open it full size, then save it.</p>')
     h.append('<p class="lede">Nearly all of these are dark surfaces. Set titles in White, body in Blue&nbsp;100 <code>#DDE8FF</code>, eyebrows and accents in Light&nbsp;Blue <code>#5D8FFF</code>. Never set Electric blue as text over them.</p>')
-    h.append(f'<p class="meta">{total} images · JPG · 1600px wide</p></header><nav>')
-    for s in ORDER:
-        if secs.get(s):
-            h.append(f'<a href="#{s}">{TITLES[s]} ({len(secs[s])})</a>')
-    h.append('<a href="#recolor">Recolour prompts</a>')
-    h.append("</nav>")
+    h.append(f'<p class="meta">{total} images · JPG · 1600px wide</p></header>')
+    h.append(tag_filter(secs))
     h.append(recolour_section())
     for s in ORDER:
         rows = secs.get(s, [])
@@ -287,9 +408,12 @@ letter-spacing:.4px;cursor:pointer;transition:background .18s,border-color .18s,
         h.append(f'<section id="{s}"><h2>{TITLES[s]}</h2><p class="sub">{NOTE[s]}</p><div class="grid">')
         for r in rows:
             rel = f"assets/images/{s}/{r['f']}"
-            h.append(f'<figure><span class="shot">'
+            tg = tags.get(r["f"], [])
+            tstr = " ".join(tg)
+            tchips = "".join(f"<span>{t}</span>" for t in tg)
+            h.append(f'<figure data-tags="{tstr}"><span class="shot">'
                      f'<a class="card" href="{rel}" target="_blank" rel="noopener">'
-                     f'<img loading="lazy" src="{rel}" alt="{r["f"]}"></a>'
+                     f'<img loading="lazy" src="{rel}" alt="{" ".join(tg) or r["f"]}"></a>'
                      f'<a class="dl" href="{rel}" download="{r["f"]}" title="Download {r["f"]}">'
                      f'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" '
                      f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
@@ -297,12 +421,13 @@ letter-spacing:.4px;cursor:pointer;transition:background .18s,border-color .18s,
                      f'</span>'
                      f'<figcaption><span>{r["f"]}</span>'
                      f'<span><i class="sw" style="background:{r["dom"]}"></i>{r["dom"]}</span>'
-                     f'</figcaption></figure>')
+                     f'</figcaption><div class="tags">{tchips}</div></figure>')
         h.append("</div></section>")
     h.append(f'<footer>Download one image:<br><code>curl -L -O "{RAW}/blue/blue-001.jpg"</code>'
              f'<br><br>Full brand skill and install instructions: '
              f'<a class="link" href="https://github.com/Gamaleldientarek/azmx-brand-skill">github.com/Gamaleldientarek/azmx-brand-skill</a>'
-             f'<br><br>Built by <a class="link" href="https://gamaleldien.com">gamaleldien.com</a></footer>')
+             f'<br><br>Built by <a class="link" href="https://gamaleldien.com">gamaleldien.com</a></footer></main>')
+    h.append(TAG_SCRIPT)
     with open(os.path.join(ROOT, "index.html"), "w") as fh:
         fh.write("\n".join(h))
 
