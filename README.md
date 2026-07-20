@@ -6,7 +6,7 @@ The official AZMX brand system, packaged as an Agent Skill for Claude Code and o
 
 Deep navy, electric blue, generous white space, serif personality, the chevron as the only graphic device. Restraint is the luxury.
 
-**[Browse the image library →](https://gamaleldientarek.github.io/azmx-brand-skill/)** — all 222 brand images, click any one to download. No account needed.
+**[Browse the image library →](https://gamaleldientarek.github.io/azmx-brand-skill/)** — all 242 brand images, click any one to download. No account needed.
 
 ## What's inside
 
@@ -18,7 +18,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/voice-and-tone.md`: how AZMX sounds, EN and AR, plus the no-AI-tells writing mechanics
 - `references/image-library.md`: catalogue, selection rules, and measured colour pairings for the image library
 - `references/image-index.md`: every image with its dominant colour, safe text colour, and a direct download link
-- `assets/images/`: 222 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
+- `assets/images/`: 242 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
 - `assets/logo/`: the AZMX logo in Colored, Navy Dark, and White SVG variants, plus the chevron favicon
 - `assets/fonts/`: Azm X (TTF, English and Arabic) and thmanyah serif display (woff2 for web, OTF for desktop)
