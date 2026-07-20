@@ -78,6 +78,17 @@ After pushing, the live gallery updates itself within a minute or two.
 
 To re-measure everything without adding files (after deleting or replacing images), run `python3 scripts/rebuild-index.py`. It needs Pillow: `pip3 install Pillow`.
 
-## Re-exporting or updating
+## Adding new images from Figma
 
-The source lives on the `Gradient & Bks` page of the New Direction Library file (fileKey `j8ugBpb1yUUyL8hfb6FHKR`). Sections are `Gradients`, `Abstract Blue`, `Orange`, `Purple`, `Green`, `Yellow`, `Red`, `White`. Export at 1600 px wide JPG and compress to quality 70 to match the current set.
+The source lives on the `Gradient & Bks` page of the New Direction Library file (fileKey `j8ugBpb1yUUyL8hfb6FHKR`). Sections are `Gradients`, `Abstract Blue`, `Orange`, `Purple`, `Green`, `Yellow`, `Red`, `White`.
+
+**For the designer:** drop new images into one of those eight sections so they inherit the right colour-pairing rules, keep the Figma Console MCP plugin open on the file, then ask Claude to add them. To add only some, select them in Figma and say so.
+
+**For the agent doing the export**, the procedure that avoids a slow file-by-file download:
+
+1. Confirm the bridge with `figma_get_status`, then list image nodes in the target section. An image node is one whose `fills` include a fill of type `IMAGE`; walk up to three levels deep to catch nested groups.
+2. Compare against what is already in `assets/images/<section>/` so existing images are not duplicated. Section counts at last export: gradient 34, blue 107, orange 21, purple 24, green 8, yellow 4, red 19, white 5.
+3. Start a local receiver on a port Figma allows. The plugin manifest permits `http://localhost` and ports 9223 to 9232, and the host must be written as `localhost`, not `127.0.0.1`, or the fetch is blocked.
+4. In `figma_execute`, loop the nodes calling `exportAsync({ format: 'JPG', constraint: { type: 'WIDTH', value: 1600 } })` and POST each result to the receiver. Keep batches to roughly 30 to 40 images per call; the tool times out at 30 seconds, though images already POSTed before a timeout are still saved, so resume from the next index rather than restarting.
+5. Compress each file to JPEG quality 70 (`sips -s format jpeg -s formatOptions 70`). Figma exports at very high quality: the first full export was 204 MB and compressed to 46 MB with no visible artefacts, checked on a gradient-heavy sample.
+6. Move the files into `assets/images/<section>/` continuing the existing numbering, then run `python3 scripts/rebuild-index.py` and commit. The live gallery updates a minute or two after pushing.
