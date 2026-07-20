@@ -14,6 +14,8 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/figma-tokens.md`: the complete live Figma variable export, 233 tokens across Colors (with Dark Mode), Fonts, and Numbers (type scale, spacing, radii, opacity)
 - `references/email-design-system.md`: the AZMX Email Design System v1 (RTL rules, 3-layer fonts, themes, components)
 - `references/voice-and-tone.md`: how AZMX sounds, EN and AR, plus the no-AI-tells writing mechanics
+- `references/image-library.md`: catalogue and selection rules for the brand image library
+- `assets/images/`: 222 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
 - `assets/logo/`: the AZMX logo in Colored, Navy Dark, and White SVG variants, plus the chevron favicon
 - `assets/fonts/`: Azm X (TTF, English and Arabic) and thmanyah serif display (woff2 for web, OTF for desktop)

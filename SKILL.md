@@ -9,7 +9,7 @@ AZMX is a Saudi UX and innovation design studio. This skill encodes its official
 
 One-line ethos: deep navy, electric blue, generous white space, serif personality, the chevron as the only recurring graphic device. **Restraint is the luxury.**
 
-For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`. For the exact live Figma variables (all 233: colors with dark mode, fonts, type scale, spacing, radii, opacity), read `references/figma-tokens.md`. For any HTML email or newsletter, read `references/email-design-system.md` and start from `assets/templates/email-starter-skeleton.html`. For any written copy, follow `references/voice-and-tone.md`.
+For the complete handbook (component specs, slide archetypes, Figma implementation), read `references/design-system.md`. For every color tone, read `references/colors.md`. For the exact live Figma variables (all 233: colors with dark mode, fonts, type scale, spacing, radii, opacity), read `references/figma-tokens.md`. For any HTML email or newsletter, read `references/email-design-system.md` and start from `assets/templates/email-starter-skeleton.html`. For any written copy, follow `references/voice-and-tone.md`. When a deliverable needs imagery, pick from the 222 brand images catalogued in `references/image-library.md`.
 
 ## Core palette
 
@@ -66,6 +66,7 @@ These read as AI or template tells; never do them: rounded-corner cards with dro
 | Azm X fonts | `assets/fonts/azmx/*.ttf` | Sans, EN + AR |
 | thmanyah fonts | `assets/fonts/thmanyah/*.woff2` (web), `*.otf` (desktop) | Serif display |
 | Font-face CSS | `assets/fonts.css` | Drop into any HTML deliverable |
+| Image library | `assets/images/` | 222 AZMX brand images in 8 sections. Default to `gradient/` and `blue/`; see `references/image-library.md` |
 | Email skeleton | `assets/templates/email-starter-skeleton.html` | Blank ready-to-fill AZMX email, default blue theme |
 | Email components | `assets/templates/email-component-showcase.html` | Every email component rendered once, copy-paste markup |
 
