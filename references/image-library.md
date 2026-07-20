@@ -17,6 +17,35 @@ Format: JPG, 1600 px wide, quality 70. Total 46 MB. Files are numbered per secti
 | Red | `assets/images/red/` | 19 | Categorical or client-specific work only. Not a brand color. |
 | White | `assets/images/white/` | 5 | Light editorial surfaces, abstract compositions on white. |
 
+## Colour pairing (measured, not assumed)
+
+Every image was analysed for dominant colour and luminance. The headline finding: **221 of the 222 images are dark surfaces** (relative luminance below 0.18). Treat an image background as a Navy surface unless it comes from the White section.
+
+That gives one governing rule:
+
+> **Text over any library image follows the Navy / gradient row of the text-colour table in `colors.md`.** Title in White `#FFFFFF`, body in Blue 100 `#DDE8FF` at 88%, eyebrow in Light Blue `#5D8FFF`, meta in Blue 200 `#BFD5FF` at 70%. **Never Electric `#001AFF` for text on these images** — it fails contrast on dark, exactly as the two-blues rule warns.
+
+Electric still appears over images, but only as *punctuation*: a filled chevron tick, a 2 px active rule, a single highlighted numeral. Never as body or title text.
+
+### Per-section pairing
+
+| Section | Measured character | Pair with | Accent |
+|---|---|---|---|
+| Gradients | Dark, dominants land on Blue 500 `#2661FF` and Blue 700 `#0200D3` | White text; the image *is* the gradient, so do not add another gradient over it | Light Blue, or White hairlines at 14% |
+| Abstract Blue | Darkest set; dominants cluster on Blue 900 `#01006E`, Blue 950 `#010040`, Dark Navy `#040038` | White text, Blue 100 body | Light Blue `#5D8FFF`. Electric only as a chevron tick |
+| White | The only lighter set (luminance 0.27) | Navy `#040038` titles, Neutral 900 `#111927` body | Electric `#001AFF` — this is the one section where Electric text works |
+| Orange | Dark with warm dominants near Red `#FF2B3C` and Orange `#F47A48` | White text | Pair with the Orange token `#F47A48` only if the project already uses it categorically; otherwise keep accents neutral |
+| Red | Dark, dominant Neutral 900 with red highlights | White text | Red `#FF2B3C` for semantic emphasis only |
+| Purple | Dark, dominants on Blue 900 and Dark Navy — reads closer to brand navy than to purple | White text, Blue 100 body | Light Blue. These are safe on AZMX surfaces despite the section name |
+| Green | Dark, dominant Neutral 900 | White text | Green `#22C36F` for semantic use only |
+| Yellow | Dark with warm highlights near Orange | White text | Yellow `#FED340` for semantic use only |
+
+### Surface substitution
+
+Because these images are dark, they can stand in for a **Solid Navy** or **gradient** surface in any slide archetype: dividers, capability pages, full-page bios, closings, and case-study feature panels. They cannot stand in for a White or Blue-50 surface — for those, use the White section or no image at all.
+
+`references/image-index.md` lists every file with its measured dominant hex, nearest token, safe text colour, and a direct download link.
+
 ## Selection rules
 
 1. **Default to Abstract Blue and Gradients.** They carry the AZMX identity. The colored sections exist because the source assets were recolored for specific projects; they are not brand colors and should not appear on a standard AZMX surface.
