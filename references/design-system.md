@@ -47,7 +47,7 @@ This system is defined as much by what it refuses as by what it allows. The foll
 | Centred everything | Default left-aligned, top-weighted, asymmetric (only the closing is centred) |
 | Equal-length columns padded to match | Let measures differ — real content |
 | Plain `01 / 02 / 03` in default sans | Styled serif brand numerals |
-| Generic icon packs, clip-art, 3D blobs, geometric scatter, glows, blurs | The chevron is the only graphic device |
+| Generic icon packs, clip-art, 3D blobs, geometric scatter, glows, blurs | The chevron is the only graphic device on editorial surfaces. Phosphor icons are permitted in functional UI only — see `icons.md` |
 | Logos pasted at equal pixel size | Normalise to equal *visual* mass |
 | Body copy in serif; heroes in sans | Serif = personality, sans = information |
 | Electric `#001AFF` as a large fill behind text (it vibrates) | Electric as punctuation only |

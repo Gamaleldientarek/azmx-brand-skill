@@ -19,6 +19,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/image-library.md`: catalogue, selection rules, and measured colour pairings for the image library
 - `references/image-index.md`: every image with its three concept tags, dominant colour, safe text colour, and a direct download link
 - `references/recolor-prompts.md`: tested prompts for converting an image to another colour theme, copyable from the gallery
+- `references/icons.md`: the Phosphor icon system, where icons are and are not allowed, locked weights and sizes
 - `assets/images/`: 242 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
 - `assets/logo/`: the AZMX logo in Colored, Navy Dark, and White SVG variants, plus the chevron favicon
