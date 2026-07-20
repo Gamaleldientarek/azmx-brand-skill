@@ -6,6 +6,8 @@ The official AZMX brand system, packaged as an Agent Skill for Claude Code and o
 
 Deep navy, electric blue, generous white space, serif personality, the chevron as the only graphic device. Restraint is the luxury.
 
+**[Browse the image library →](https://gamaleldientarek.github.io/azmx-brand-skill/)** — all 222 brand images, click any one to download. No account needed.
+
 ## What's inside
 
 - `SKILL.md`: the condensed brand rules the agent loads automatically
