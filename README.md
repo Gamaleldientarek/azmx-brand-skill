@@ -20,6 +20,9 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/image-index.md`: every image with its three concept tags, dominant colour, safe text colour, and a direct download link
 - `references/recolor-prompts.md`: tested prompts for converting an image to another colour theme, copyable from the gallery
 - `references/icons.md`: the Phosphor icon system, where icons are and are not allowed, locked weights and sizes
+- `references/pdf-forms.md`: the validated Figma → export → pdf-lib pipeline for printed A4 documents and fillable PDF forms
+- `scripts/build-pdf-form.mjs`: stamps AcroForm fields onto a designed PDF at exact coordinates, with the brand font embedded
+- `scripts/extract-figma-fields.js`: reads the field rectangles out of a Figma design and emits the JSON spec
 - `assets/images/`: 242 AZMX-generated brand images in 8 sections (gradients, abstract blue, and recolored variants)
 - `assets/templates/`: ready-to-fill email skeleton and the full email component showcase
 - `assets/logo/`: the AZMX logo in Colored, Navy Dark, and White SVG variants, plus the chevron favicon
@@ -65,8 +68,20 @@ git add -A && git commit -m "Add images to blue" && git push
 
 Sections: `gradient`, `blue`, `white`, `orange`, `purple`, `red`, `green`, `yellow`. The script resizes to 1600px, compresses to match the set, numbers the files, and rebuilds both the index and the live gallery. Needs Pillow (`pip3 install Pillow`).
 
+## Building a fillable PDF form
+
+Design the form in Figma on A4 frames (595 × 842), name every input rectangle `FIELD · snake_case_id`, then:
+
+```bash
+cd ~/.claude/skills/azmx-brand/scripts && npm install   # once
+node ~/.claude/skills/azmx-brand/scripts/build-pdf-form.mjs \
+  --src merged.pdf --fields fields.json --out fillable.pdf --expect 99
+```
+
+Fields land at exact coordinates with readable names, so Acrobat's "Prepare Form" auto-detect is never needed. Full pipeline in `references/pdf-forms.md`.
+
 ## License note
 
 The AZMX logo, brand assets, and the thmanyah serif display and Azm X font files are the property of AZMX and its licensors, and are licensed for AZMX work only. Viewing this repo does not grant any right to use them in non-AZMX projects or to redistribute the fonts.
 
-Built by [gamaleldien.com](https://gamaleldien.com). Design system v1.1, encoded from the New Direction Library Figma file.
+Built by [gamaleldien.com](https://gamaleldien.com). Skill v1.2.0, design system v1.1, encoded from the New Direction Library Figma file. Release notes in [CHANGELOG.md](CHANGELOG.md).
