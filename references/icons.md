@@ -4,18 +4,30 @@
 
 Phosphor was chosen because it is the only major open library where weight is consistent across the entire set. AZMX's voice runs on weight contrast (serif against sans, Light through Black), so icons can follow the same discipline as the type instead of sitting at one fixed stroke.
 
-## Where icons are allowed
+## Ask before you use icons
 
-This is the important part, because the design system otherwise treats icon packs as an AI tell and names the chevron as the only recurring graphic device. Both remain true.
+**Icons are permitted on any AZMX surface — including decks, reports, covers, and editorial layouts — but never add them without confirming with the user first.** Ask a direct question before placing the first icon:
 
-| Context | Icons | Reason |
+> "Do you want icons on this? Phosphor, Regular weight, Neutral 900 with at most one Electric accent — or keep it type and chevron only?"
+
+This is the same rule as "Ask before you color" in `SKILL.md`. Icons change the character of a surface, so the choice belongs to the person whose work it is, not to the agent's default.
+
+Rules for this step:
+
+- **Never silently decide either way.** Adding an icon row unasked, and stripping icons out because a surface "feels editorial", are both wrong. One short question, then proceed.
+- **Never silently decide either way on a printed document.** A printed A4 form, report, or PDF is a real surface where icons are permitted — ask, do not assume.
+- If the user says no, the surface runs on type and the chevron alone. If they say yes, apply the locked usage below without further prompting.
+
+| Context | Icons | Notes |
 |---|---|---|
-| Product UI, app screens, dashboards, data tables, forms | **Allowed** | Function needs affordances that type alone cannot carry |
-| Web page utility (navigation, download, external link, copy, close) | **Allowed** | Same reason, kept minimal |
-| Decks, covers, dividers, closings, reports, brand editorial surfaces | **Never** | The chevron is the only device here. An icon row on a slide is the AI tell the system exists to prevent |
-| Emails | **Rarely** | Only functional (calendar, location, link). Never decorative bullets — the chevron bullet is the system's bullet |
+| Product UI, app screens, dashboards, data tables, forms | **Ask, default yes** | Function needs affordances type alone cannot carry |
+| Web page utility (navigation, download, external link, copy, close) | **Ask, default yes** | Kept minimal |
+| Decks, reports, covers, dividers, closings, printed documents | **Ask** | Permitted, but confirm. Owner decision, 2026-07-22 |
+| Emails | **Ask, keep functional** | Calendar, location, link. Never decorative bullets |
 
-Icons never replace the chevron. The chevron remains the list bullet, the section tick, the photo mask, and the page-number flow tick everywhere.
+The discipline that prevents icons reading as an AI tell is not a ban — it is restraint in how they are used: one weight, one size step per surface, at most one accent, paired with labels, and never a scattered row of decorative glyphs standing in for content.
+
+**Icons never replace the chevron.** The chevron remains the list bullet, the section tick, the photo mask, and the page-number flow tick everywhere. Icons sit alongside it, carrying meaning the chevron cannot.
 
 ## Locked usage
 

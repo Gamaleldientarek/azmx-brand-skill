@@ -41,7 +41,7 @@ Rules: serif carries personality, sans carries information. Never set body copy 
 
 ## The chevron
 
-The rightward chevron is the only graphic device, and it is **functional, never background decoration**. Sanctioned uses: photo mask, stacked-in-motion hero trio (foreground compositional art), section tick, and list bullet. One big chevron gesture per surface, always pointing in the reading direction. No icon packs, no clip art, no 3D blobs, no glows, no drop-shadow cards.
+The rightward chevron is the only graphic device, and it is **functional, never background decoration**. Sanctioned uses: photo mask, stacked-in-motion hero trio (foreground compositional art), section tick, and list bullet. One big chevron gesture per surface, always pointing in the reading direction. No clip art, no 3D blobs, no glows, no drop-shadow cards. Phosphor icons are permitted alongside the chevron once the user has confirmed them — see the Icons section.
 
 **Banned (owner decision, 2026-07-20): chevrons as backgrounds.** No oversized ghost chevrons bleeding off corners, no navy-on-navy or low-opacity chevron field textures, no concentric chevron arc backdrops, no chevron art placed behind or under content. Backgrounds stay clean: solid surface, gradient (event surfaces only), and nothing else. If a layout feels empty without a background device, the answer is negative space, not a chevron.
 
@@ -55,13 +55,13 @@ The rightward chevron is the only graphic device, and it is **functional, never 
 
 ## Icons
 
-Phosphor Icons (MIT, free for client work) is the only icon library. **Icons are permitted in functional UI contexts only** — product screens, dashboards, tables, forms, and web utility controls. They never appear on editorial brand surfaces: decks, covers, dividers, closings, and reports use the chevron alone. Icons never replace the chevron as bullet, tick, or mask.
+Phosphor Icons (MIT, free for client work) is the only icon library. **Icons are permitted on any surface — decks, reports, covers, printed documents, product UI — but you must ask the user before adding them.** Never decide either way on their behalf: adding an unasked icon row and stripping icons because a surface "feels editorial" are both wrong. Ask once, then proceed. Icons never replace the chevron as bullet, tick, or mask; they sit alongside it.
 
 Locked usage: weight Regular (Light on dark where Regular reads heavy), size 20 px inline / 24 px standalone / 32 px feature anchor. Never Fill or Duotone. On light surfaces use Neutral 900 with at most one Electric accent icon; on dark use White with Light Blue for secondary, never Electric. Prefer icon plus label; a standalone icon still needs an `aria-label`. Full rules in `references/icons.md`.
 
 ## Human-craft guardrails
 
-These read as AI or template tells; never do them: rounded-corner cards with drop shadows everywhere, centered everything, equal-length padded columns, plain numerals in default sans, generic icons, Electric as a large text background, gradients behind paragraphs, uniform 16 px spacing everywhere, scattered chevrons.
+These read as AI or template tells; never do them: rounded-corner cards with drop shadows everywhere, centered everything, equal-length padded columns, plain numerals in default sans, scattered decorative icon rows standing in for content, Electric as a large text background, gradients behind paragraphs, uniform 16 px spacing everywhere, scattered chevrons.
 
 ## Assets
 
@@ -129,6 +129,7 @@ Rules for this step:
 4. If the deliverable needs imagery, pick from the image library (see "Use the image library" above). Never substitute generic stock or a placeholder.
 5. Place the correct logo variant for the surface.
 6. Apply one chevron gesture maximum, pointing right.
-7. For emails and newsletters: follow `references/email-design-system.md` (Arabic RTL rules are non-negotiable) and build from the email skeleton template.
-8. For all written copy: apply `references/voice-and-tone.md`, including its no-AI-tells mechanics.
-9. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.
+7. Ask the user whether they want icons on this deliverable (see "Icons" above). Ask once, before placing the first one. Never decide either way silently — this applies to decks and reports exactly as it applies to product UI.
+8. For emails and newsletters: follow `references/email-design-system.md` (Arabic RTL rules are non-negotiable) and build from the email skeleton template.
+9. For all written copy: apply `references/voice-and-tone.md`, including its no-AI-tells mechanics.
+10. Check the guardrails table above before delivering. When in doubt, remove decoration. Restraint is the luxury.

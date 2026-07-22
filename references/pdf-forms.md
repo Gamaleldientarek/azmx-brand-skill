@@ -93,7 +93,9 @@ The extractor keys off the `FIELD · ` prefix, and the identifier becomes the Ac
 | Grid hairline | 1 px `#C9CFD9` |
 | Chevron | One per document maximum, as a title terminator. Never a background |
 
-No icons, no shadows, no corner radii, no chevron backgrounds. Restraint is the luxury.
+No shadows, no corner radii, no chevron backgrounds. Restraint is the luxury.
+
+**Icons: ask, do not assume.** A printed form is a surface where Phosphor icons are permitted — but never add them, or omit them, without confirming with the user first. See `icons.md`. Where icons are approved on a form, they earn their place on functional instructions (a paperclip on an "attach your IBAN letter" callout) rather than decorating field labels, which already read clearly as type.
 
 ### Figma MCP gotcha
 

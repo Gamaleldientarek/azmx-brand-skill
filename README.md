@@ -19,7 +19,7 @@ Deep navy, electric blue, generous white space, serif personality, the chevron a
 - `references/image-library.md`: catalogue, selection rules, and measured colour pairings for the image library
 - `references/image-index.md`: every image with its three concept tags, dominant colour, safe text colour, and a direct download link
 - `references/recolor-prompts.md`: tested prompts for converting an image to another colour theme, copyable from the gallery
-- `references/icons.md`: the Phosphor icon system, where icons are and are not allowed, locked weights and sizes
+- `references/icons.md`: the Phosphor icon system, the ask-before-you-use-icons rule, locked weights, sizes, and colours by surface
 - `references/pdf-forms.md`: the validated Figma → export → pdf-lib pipeline for printed A4 documents and fillable PDF forms
 - `scripts/build-pdf-form.mjs`: stamps AcroForm fields onto a designed PDF at exact coordinates, with the brand font embedded
 - `scripts/extract-figma-fields.js`: reads the field rectangles out of a Figma design and emits the JSON spec
@@ -84,4 +84,4 @@ Fields land at exact coordinates with readable names, so Acrobat's "Prepare Form
 
 The AZMX logo, brand assets, and the thmanyah serif display and Azm X font files are the property of AZMX and its licensors, and are licensed for AZMX work only. Viewing this repo does not grant any right to use them in non-AZMX projects or to redistribute the fonts.
 
-Built by [gamaleldien.com](https://gamaleldien.com). Skill v1.2.0, design system v1.1, encoded from the New Direction Library Figma file. Release notes in [CHANGELOG.md](CHANGELOG.md).
+Built by [gamaleldien.com](https://gamaleldien.com). Skill v1.3.0, design system v1.1, encoded from the New Direction Library Figma file. Release notes in [CHANGELOG.md](CHANGELOG.md).

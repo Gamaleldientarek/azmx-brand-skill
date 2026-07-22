@@ -47,7 +47,7 @@ This system is defined as much by what it refuses as by what it allows. The foll
 | Centred everything | Default left-aligned, top-weighted, asymmetric (only the closing is centred) |
 | Equal-length columns padded to match | Let measures differ — real content |
 | Plain `01 / 02 / 03` in default sans | Styled serif brand numerals |
-| Generic icon packs, clip-art, 3D blobs, geometric scatter, glows, blurs | The chevron is the only graphic device on editorial surfaces. Phosphor icons are permitted in functional UI only — see `icons.md` |
+| Clip-art, 3D blobs, geometric scatter, glows, blurs, decorative icon rows standing in for content | The chevron is the system's own graphic device. Phosphor icons are permitted on any surface once the user confirms them — always ask first, see `icons.md` |
 | Logos pasted at equal pixel size | Normalise to equal *visual* mass |
 | Body copy in serif; heroes in sans | Serif = personality, sans = information |
 | Electric `#001AFF` as a large fill behind text (it vibrates) | Electric as punctuation only |
@@ -313,7 +313,7 @@ y = floor((n − 1) / 6) * 1200
 Decoration is exactly three things: **chevron + gradient + hairline.**
 
 - **Hairlines:** 1 px rules at Neutral-900 @ 12% (light) / White @ 14% (dark). At most **one** Electric / Light-Blue 2 px "active" rule per slide.
-- **No** drop shadows on cards, glows, gradient-on-everything, blur, geometric scatter, or icon packs.
+- **No** drop shadows on cards, glows, gradient-on-everything, blur, or geometric scatter. Phosphor icons are permitted once confirmed with the user — see `icons.md`.
 
 ---
 

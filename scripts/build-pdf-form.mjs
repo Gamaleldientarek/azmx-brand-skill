@@ -26,8 +26,10 @@
  *     "id": "p1_personal_name",     // becomes the AcroForm field name
  *     "x": 235, "y": 173,           // Figma coords (top-down, frame-relative)
  *     "w": 311, "h": 22,
- *     "type": "text",               // "text" | "check"
- *     "multiline": false            // optional, text only
+ *     "type": "text",               // "text" | "check" | "select"
+ *     "multiline": false,           // optional, text only
+ *     "options": ["SAR", "USD"],    // required for "select"
+ *     "default": "SAR"              // optional, select only
  *   }
  *
  * Dependencies: npm i pdf-lib @pdf-lib/fontkit
@@ -79,8 +81,15 @@ fields.forEach((f, i) => {
   for (const k of ['p', 'id', 'x', 'y', 'w', 'h']) {
     if (f[k] === undefined) problems.push(`field[${i}] missing "${k}"`);
   }
-  if (f.type && !['text', 'check'].includes(f.type)) {
+  if (f.type && !['text', 'check', 'select'].includes(f.type)) {
     problems.push(`field[${i}] (${f.id}) has invalid type "${f.type}"`);
+  }
+  if (f.type === 'select') {
+    if (!Array.isArray(f.options) || f.options.length === 0) {
+      problems.push(`field[${i}] (${f.id}) is type "select" but has no options array`);
+    } else if (f.default && !f.options.includes(f.default)) {
+      problems.push(`field[${i}] (${f.id}) default "${f.default}" is not one of its options`);
+    }
   }
   if (f.w <= 0 || f.h <= 0) problems.push(`field[${i}] (${f.id}) has non-positive size`);
 });
@@ -109,7 +118,7 @@ if (fs.existsSync(TTF)) {
 }
 
 const form = pdfDoc.getForm();
-const counts = { text: 0, check: 0 };
+const counts = { text: 0, check: 0, select: 0 };
 
 for (const f of fields) {
   const page = pages[f.p];
@@ -129,6 +138,13 @@ for (const f of fields) {
     // borderWidth 0: the square is already drawn in the page content by Figma.
     cb.addToPage(page, { ...box, borderWidth: 0 });
     counts.check++;
+  } else if (type === 'select') {
+    const dd = form.createDropdown(f.id);
+    dd.addOptions(f.options);
+    if (f.default) dd.select(f.default);
+    dd.addToPage(page, { ...box, borderWidth: 0, textColor: INK, ...(font ? { font } : {}) });
+    dd.setFontSize(SIZE); // MUST follow addToPage — /DA is created there.
+    counts.select++;
   } else {
     const tf = form.createTextField(f.id);
     tf.setText('');
@@ -139,7 +155,7 @@ for (const f of fields) {
   }
 }
 
-const total = counts.text + counts.check;
+const total = counts.text + counts.check + counts.select;
 if (EXPECT !== null && total !== EXPECT) {
   console.error(`Field count mismatch: wrote ${total}, expected ${EXPECT}.`);
   process.exit(1);
@@ -151,7 +167,7 @@ if (FLATTEN) form.flatten();
 fs.writeFileSync(OUT, await pdfDoc.save());
 
 console.log(`pages     ${pages.length}`);
-console.log(`fields    ${total}  (text ${counts.text}, check ${counts.check})`);
+console.log(`fields    ${total}  (text ${counts.text}, check ${counts.check}, select ${counts.select})`);
 console.log(`font      ${font ? path.basename(TTF) + ' embedded' : 'Helvetica (fallback)'}`);
 if (FLATTEN) console.log('flattened read-only');
 console.log(`wrote     ${OUT}`);
